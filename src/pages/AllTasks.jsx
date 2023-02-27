@@ -77,7 +77,7 @@ const AllTasks = () => {
 
                 <div className='d-flex flex-wrap ms-5'>
                     {isFiltered ?
-                        selectTasks && selectTasks.map(
+                        selectTasks.length ? selectTasks.map(
                             (task) => {
                                 return (
                                     <div key={task._id} className="card mx-1 my-3" style={{ width: "15rem" }}>
@@ -104,10 +104,11 @@ const AllTasks = () => {
                                 )
                             }
                         )
+                            : !isLoading && <h1>No Data</h1>
 
                         :
 
-                        allTasks && allTasks.map(
+                        allTasks.length ? allTasks.map(
                             (task) => {
                                 return (
                                     <div key={task._id} className="card mx-1 my-3" style={{ width: "15rem" }}>
@@ -134,6 +135,8 @@ const AllTasks = () => {
                                 )
                             }
                         )
+                            :
+                            !isLoading && <h1>No data</h1>
                     }
                 </div>
 
